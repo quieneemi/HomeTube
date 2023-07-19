@@ -1,0 +1,8 @@
+services:
+  app:
+    image: hometube
+    build: ./src/.
+    ports:
+      - 5171:80
+    volumes:
+      - ../Anime/:/App/wwwroot/video/

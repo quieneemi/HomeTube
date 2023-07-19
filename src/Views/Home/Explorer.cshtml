@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Node>
+
+<div class="d-flex flex-wrap">
+    @foreach (var node in Model)
+    {
+        <div class="card text-center pt-2 m-3" style="width: 8rem;">
+            <div class="card-img-top">
+                @if (node.Type == NodeType.Directory)
+                {
+                    <img src="~/open-folder-outline-icon.png">
+                }
+                else
+                {
+                    <img src="~/movie-videos-icon.png">
+                }
+            </div>
+            <div class="card-body">
+                <h6 class="card-title">@node.Name</h6>
+                @if (node.Type == NodeType.Directory)
+                {
+                    <a class="stretched-link" asp-action="Explorer" asp-route-path="@node.Path"></a>
+                }
+                else
+                {
+                    <a class="stretched-link" asp-action="Player" asp-route-path="@node.Path"></a>
+                }
+            </div>
+        </div>
+    }
+</div>

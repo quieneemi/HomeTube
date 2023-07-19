@@ -1,0 +1,22 @@
+@model string
+
+<video id="my-video"
+       class="video-js"
+       controls
+       preload="auto"
+       width="854" height="480"
+       data-setup="{}">
+    <source src="@Model" type="video/mp4"/>
+</video>
+
+<script>
+    videojs('my-video', {
+        controlBar: {
+            skipButtons: {
+                forward: 10,
+                backward: 10
+            }
+        },
+        playbackRates: [1, 1.25, 1.5, 2]
+    });
+</script>
